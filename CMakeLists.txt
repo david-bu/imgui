@@ -15,8 +15,8 @@ if(IMGUI_OPENGL3)
     backends/imgui_impl_opengl3.h backends/imgui_impl_opengl3_loader.h)
 endif()
   
-install(TARGETS glfw
-        EXPORT glfwTargets
+install(TARGETS imgui
+        EXPORT imguiTargets
         RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
         ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}")
