@@ -14,6 +14,8 @@ if(IMGUI_OPENGL3)
   target_sources(imgui PRIVATE backends/imgui_impl_opengl3.cpp
     backends/imgui_impl_opengl3.h backends/imgui_impl_opengl3_loader.h)
 endif()
+
+target_include_directories(imgui PUBLIC imgui.h)
   
 install(TARGETS imgui
         EXPORT imguiTargets
