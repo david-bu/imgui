@@ -16,6 +16,7 @@ option(IMGUI_OPENGL3 "use imgui with OpenGL3" ON)
 if(IMGUI_GLFW)
   target_sources(imgui PRIVATE backends/imgui_impl_glfw.cpp
     backends/imgui_impl_glfw.h)
+  target_link_libraries(imgui PUBLIC GLFW)
 endif()
 
 if(IMGUI_OPENGL3)
