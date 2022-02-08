@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
 project(imgui VERSION 1.0)
 
-add_library(imgui STATIC imconfig.h imgui.h imgui.cpp imgui_demo.cpp
+set(IMGUI_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(imgui STATIC)
+  
+target_sources(imgui PRIVATE
+  imconfig.h imgui.h imgui.cpp imgui_demo.cpp
   imgui_draw.cpp imgui_internal.h imgui_tables.cpp imgui_widgets.cpp
   imstb_rectpack.h imstb_textedit.h imstb_truetype.h)
   
@@ -15,7 +20,10 @@ if(IMGUI_OPENGL3)
     backends/imgui_impl_opengl3.h backends/imgui_impl_opengl3_loader.h)
 endif()
 
-target_include_directories(imgui PUBLIC imgui.h)
+target_include_directories(imgui
+                           PUBLIC ${IMGUI_DIR}
+                           PUBLIC ${IMGUI_DIR}/backends
+                           )
   
 install(TARGETS imgui
         EXPORT imguiTargets
